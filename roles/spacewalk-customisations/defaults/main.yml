@@ -15,7 +15,7 @@ spacewalk_db_password: spacepw
 spacewalk_db_host: localhost
 spacewalk_db_port: 5432
 spacewalk_enable_tftp: Y
-spacewalk_admin_password: test123
+spacewalk_admin_password: "{{ admin_password }}"
 spacewalk_scripts_dir: /opt/spacewalk-scripts/
 
 spacewalk_repo_info:
