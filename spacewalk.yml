@@ -18,6 +18,8 @@
 
 - hosts: localhost
   sudo: yes
+  vars_files:
+    - secrets/{{site}}-secrets.yml
 
 #  vars_prompt:
 #    - name: "ready_to_go"
