@@ -1,0 +1,10 @@
+---
+  - name: Install spacewalk-postgresql
+    yum: name=spacewalk-postgresql state=present
+
+  - name: Copy answers file for spacewalk setip
+    template: src=answers.j2 dest=/tmp/answers owner=root group=root mode=0600
+
+  - name: Install spacewalk
+    command: spacewalk-setup --disconnected --answer-file=/tmp/answers
+             creates=/var/satellite

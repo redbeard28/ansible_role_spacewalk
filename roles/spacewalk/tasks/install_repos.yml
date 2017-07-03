@@ -1,0 +1,9 @@
+---
+  - name: Enable EPEL
+    yum: name=epel-release
+
+  - name: Install jpackage repo
+    template: src=jpackage.j2 dest=/etc/yum.repos.d/jpackage-generic.repo
+
+  - name: Install Spacewalk repository
+    yum: name=http://yum.spacewalkproject.org/2.5/RHEL/{{ansible_distribution_major_version}}/x86_64/spacewalk-repo-2.5-3.el{{ansible_distribution_major_version}}.noarch.rpm

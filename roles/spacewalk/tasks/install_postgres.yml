@@ -1,0 +1,3 @@
+---
+  - name: Install Spacewalk-setup-postgresql
+    yum: name=spacewalk-setup-postgresql state=present
