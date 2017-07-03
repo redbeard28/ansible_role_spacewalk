@@ -31,5 +31,5 @@
 
   roles:
     - role: spacewalk-customisations
-      spacewalk_admin_password: "{{ vault_spacewalk_admin_password }}"
+      spacewalk_admin_password: {{ admin_password }}
     - role: spacewalk-client
