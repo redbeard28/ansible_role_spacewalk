@@ -1,9 +1,17 @@
 ---
   - name: Enable EPEL
     yum: name=epel-release
+    environment:
+      http_proxy: {{ proxy_env.http_proxy }}
+      https_proxy: {{ proxy_env.https_proxy }}
+      no_proxy: {{ proxy_env.no_proxy }}
 
   - name: Install jpackage repo
     template: src=jpackage.j2 dest=/etc/yum.repos.d/jpackage-generic.repo
 
   - name: Install Spacewalk repository
     yum: name=http://yum.spacewalkproject.org/2.5/RHEL/{{ansible_distribution_major_version}}/x86_64/spacewalk-repo-2.5-3.el{{ansible_distribution_major_version}}.noarch.rpm
+    environment:
+      http_proxy: {{ proxy_env.http_proxy }}
+      https_proxy: {{ proxy_env.https_proxy }}
+      no_proxy: {{ proxy_env.no_proxy }}    
