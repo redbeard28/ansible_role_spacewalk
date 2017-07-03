@@ -5,15 +5,15 @@
     - secrets/{{site}}-secrets.yml
   roles:
     - spacewalk
-    - role: iptables
-      firewall_allowed_tcp_ports:
-      - 22
-      - 80
-      - 443
-      - 5222
-      - 5269
-      - 68
-      - 69
+#    - role: iptables
+#      firewall_allowed_tcp_ports:
+#      - 22
+#      - 80
+#      - 443
+#      - 5222
+#      - 5269
+#      - 68
+#      - 69
 
 
 - hosts: localhost
