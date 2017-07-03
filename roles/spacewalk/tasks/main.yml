@@ -1,7 +1,7 @@
 ---
-  - include: install_repos.yml
+- include: install_repos.yml
   tags: spacewalk-repos
-  - include: install_postgres.yml
+- include: install_postgres.yml
   tags: spacewalk-postgres
-  - include: install_spacewalk.yml
+- include: install_spacewalk.yml
   tags: spacewalk-install
