@@ -1,6 +1,10 @@
 Spacewalk playbooks and roles
 ==============
 
+Original source from https://github.com/fayaaz/spacewalk.ansible.git
+Thank you for his work.
+
+
 Install a full Spacewalk server on CentOS 7 and also adds customizations:
 - CentOS 6 base+extras+epel+updates repos, channel and activation key 
 - CentOS 7 base+extras+epel+updates repos, channel and activation key
