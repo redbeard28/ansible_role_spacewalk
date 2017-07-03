@@ -1,4 +1,6 @@
 ---
+- include: clone_role.yml
+  tags: spacewalk-clone
 - include: install_repos.yml
   tags: spacewalk-repos
 - include: install_postgres.yml
