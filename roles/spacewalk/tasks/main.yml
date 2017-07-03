@@ -11,17 +11,17 @@
   - name: Install Spacewalk-setup-postgresql
     yum: name=spacewalk-setup-postgresql state=present
 
-  - name: Ensure hostname in /etc/hosts
-    lineinfile: dest=/etc/hosts regexp=^{{ansible_default_ipv4.address}} line="{{ansible_default_ipv4.address}} spacewalk-test"
+#  - name: Ensure hostname in /etc/hosts
+#    lineinfile: dest=/etc/hosts regexp=^{{ansible_default_ipv4.address}} line="{{ansible_default_ipv4.address}} spacewalk-test"
 
   - name: Install spacewalk-postgresql
     yum: name=spacewalk-postgresql state=present
 
   - name: Copy answers file for spacewalk setip
-    template: src=answers.j2 dest=/var/tmp/answers owner=root group=root mode=0600
+    template: src=answers.j2 dest=/tmp/answers owner=root group=root mode=0600
 
   - name: Install spacewalk
-    command: spacewalk-setup --disconnected --answer-file=/var/tmp/answers
+    command: spacewalk-setup --disconnected --answer-file=/tmp/answers
              creates=/var/satellite
   #- template: src=iptables.j2 dest=/etc/sysconfig/iptables owner=root group=root mode=0600
   #  notify: restart_iptables
