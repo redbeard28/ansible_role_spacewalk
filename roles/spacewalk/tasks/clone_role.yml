@@ -1,0 +1,3 @@
+---
+  - name: Refresh role spacewalk (just for debugging)
+    command: rm -rf /ansible/* && git clone clone https://github.com/redbeard28/ansible_role_spacewalk.git /ansible
