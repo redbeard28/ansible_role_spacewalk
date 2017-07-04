@@ -9,6 +9,14 @@
   - name: Copy answers file for spacewalk setip
     template: src=answers.j2 dest=/tmp/answers owner=root group=root mode=0600
 
+# We must stop postgres before supervisord start it !!!
+  - name: Postgres - Stoping instance
+    become_user: postgres
+    command: /usr/bin/pg_ctl start -D /var/lib/pgsql/data/  -w -t 300
+
+  - name: Supervisord - Starting tomcat httpd postgres jabber* osa-dispatcher
+    command: supervisord.conf /etc/supervisord.d/supervisord.conf
+    
   - name: Install spacewalk
 #    command: spacewalk-setup --disconnected --answer-file=/tmp/answers creates=/var/satellite
     command: spacewalk-setup --non-interactive --answer-file=/tmp/answers creates=/var/satellite
