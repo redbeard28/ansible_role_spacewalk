@@ -46,27 +46,6 @@
     - supervisor
     - supervisord
 
-- name: Create supervisord init script
-  sudo: yes
-  template:
-    src: "{{item}}"
-    dest: "{{supervisord_init_script}}"
-    mode: 0755
-  with_first_found:
-    - files:
-        - "init.{{ansible_distribution}}-{{ansible_distribution_release}}"
-        - "init.{{ansible_distribution}}"
-        - "init.{{ansible_os_family}}"
-      paths:
-        - ../templates/
-  notify: restart supervisord
-  tags:
-    - init
-    - conf
-    - supervisor
-    - supervisord
-  when: ansible_os_family == 'Debian'
-
 - name: Add supervisord to init
   sudo: yes
   service:
@@ -77,9 +56,7 @@
     - conf
     - supervisor
     - supervisord
-  when: ansible_os_family == 'Debian'
 
 - name: Add supervisord to init Centos
   sudo: yes
   template: src=centos-systemd.j2 dest=/etc/init.d/
-  when: ansible_os_family == 'Centos'
