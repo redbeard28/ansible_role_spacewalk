@@ -81,4 +81,5 @@
 
 - name: Add supervisord to init Centos
   sudo: yes
+  template: src=centos-systemd.j2 dest=/etc/init.d/
   when: ansible_os_family == 'Centos'
