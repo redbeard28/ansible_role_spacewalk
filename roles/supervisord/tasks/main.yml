@@ -20,5 +20,5 @@
   
 - name: Ensure supervisord is running
   sudo: yes
-    systemd: state=started name="{{supervisord_service_name}}"
+  systemd: state=started name="{{supervisord_service_name}}"
   when: ansible_os_family == 'Centos'
