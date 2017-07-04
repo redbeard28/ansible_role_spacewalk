@@ -10,5 +10,5 @@
     template: src=answers.j2 dest=/tmp/answers owner=root group=root mode=0600
 
   - name: Install spacewalk
-    command: spacewalk-setup --disconnected --answer-file=/tmp/answers
-             creates=/var/satellite
+#    command: spacewalk-setup --disconnected --answer-file=/tmp/answers creates=/var/satellite
+    command: spacewalk-setup --non-interactive --answer-file=/tmp/answers creates=/var/satellite
