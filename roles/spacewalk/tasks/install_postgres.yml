@@ -5,3 +5,19 @@
       http_proxy: "{{ proxy_env.http_proxy }}"
       https_proxy: "{{ proxy_env.https_proxy }}"
       no_proxy: "{{ proxy_env.no_proxy }}"
+  
+  - name: Postgres - Initialisation instance
+    command: su - -c "/usr/bin/pg_ctl initdb  -D /var/lib/pgsql/data/" postgres
+    
+  - name: Postgres - Starting instance
+    command: su - -c "/usr/bin/pg_ctl start -D /var/lib/pgsql/data/  -w -t 300" postgres
+
+  - name: Posgres - Create DATABASE spaceschema
+    command: su - -c "psql -c 'CREATE DATABASE spaceschema'" postgres
+
+  - name: Postgres - Create user spaceuser
+    command: su - -c "psql -c "CREATE USER spaceuser WITH PASSWORD 'spacepw'" && psql -c 'ALTER ROLE spaceuser SUPERUSER'" postgres
+
+  - name: Postgres - pltclu
+    command: su - -c "createlang pltclu spaceschema" postgres
+    
