@@ -12,7 +12,7 @@
 # We must stop postgres before supervisord start it !!!
   - name: Postgres - Stoping instance
     become_user: postgres
-    command: /usr/bin/pg_ctl start -D /var/lib/pgsql/data/  -w -t 300
+    command: /usr/bin/pg_ctl stop -D /var/lib/pgsql/data/  -w -t 300
 
   - name: Supervisord - Starting tomcat httpd postgres jabber* osa-dispatcher
     command: supervisord.conf /etc/supervisord.d/supervisord.conf
