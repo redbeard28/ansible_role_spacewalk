@@ -4,6 +4,8 @@
   vars_files:
     - secrets/{{site}}-secrets.yml
   roles:
+    - repo-epel
+    - supervisord
     - spacewalk
 #    - role: iptables
 #      firewall_allowed_tcp_ports:

@@ -16,3 +16,4 @@ spacewalk_db_host: localhost
 spacewalk_db_port: 5432
 spacewalk_enable_tftp: Y
 
+

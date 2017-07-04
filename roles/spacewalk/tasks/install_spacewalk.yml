@@ -14,8 +14,10 @@
     become_user: postgres
     command: /usr/bin/pg_ctl stop -D /var/lib/pgsql/data/  -w -t 300
 
-  - name: Supervisord - Starting tomcat httpd postgres jabber* osa-dispatcher
-    command: supervisord -c /etc/supervisord.d/supervisord.conf &
+  - name: Supervisord - Restart
+    include_role:
+      name: supervisord
+      tags: supervisord-restart
     
   - name: Install spacewalk
 #    command: spacewalk-setup --disconnected --answer-file=/tmp/answers creates=/var/satellite
