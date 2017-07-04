@@ -4,7 +4,10 @@
 # placed in this same directory.
 
 - include: install.yml
-- include: configure.yml
+- include: configure-debian.yml
+  when: ansible_os_family == 'Debian'
+- include: configure-centos.yml
+  when: ansible_os_family == 'Centos'
 
 - name: Ensure supervisord is running
   sudo: yes
