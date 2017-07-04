@@ -210,4 +210,4 @@ supervisord_min_procs: 200
 # expansion is done, but *, ?, and character ranges expressed with [] will be
 # correctly matched. Recursive includes from included files are not supported.
 supervisord_additional_conf_files:
-  - "{{supervisord_additional_conf_dir}}/*.conf"
+  - "{{supervisord_additional_conf_dir}}d.d/*.conf"
