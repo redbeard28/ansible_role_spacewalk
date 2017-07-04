@@ -7,22 +7,22 @@
       no_proxy: "{{ proxy_env.no_proxy }}"
   
   - name: Postgres - Initialisation instance
-    become: postgres
+    become_user: postgres
     command: /usr/bin/pg_ctl initdb  -D /var/lib/pgsql/data/
     
   - name: Postgres - Starting instance
-    become: postgres
+    become_user: postgres
     command: /usr/bin/pg_ctl start -D /var/lib/pgsql/data/  -w -t 300
 
   - name: Posgres - Create DATABASE spaceschema
-    become: postgres
+    become_user: postgres
     command: psql -c 'CREATE DATABASE spaceschema'
 
   - name: Postgres - Create user spaceuser
-    become: postgres
+    become_user: postgres
     command: psql -c "CREATE USER spaceuser WITH PASSWORD 'spacepw'" && psql -c 'ALTER ROLE spaceuser SUPERUSER'
 
   - name: Postgres - pltclu
-    become: postgres
+    become_user: postgres
     command: createlang pltclu spaceschema
     
