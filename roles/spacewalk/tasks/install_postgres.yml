@@ -16,7 +16,7 @@
     command: su - -c "psql -c 'CREATE DATABASE spaceschema'" postgres
 
   - name: Postgres - Create user spaceuser
-    command: su - -c "psql -c "CREATE USER spaceuser WITH PASSWORD 'spacepw'" && psql -c 'ALTER ROLE spaceuser SUPERUSER'" postgres
+    command: su - -c "psql -c 'CREATE USER spaceuser WITH PASSWORD 'spacepw'' && psql -c 'ALTER ROLE spaceuser SUPERUSER'" postgres
 
   - name: Postgres - pltclu
     command: su - -c "createlang pltclu spaceschema" postgres
