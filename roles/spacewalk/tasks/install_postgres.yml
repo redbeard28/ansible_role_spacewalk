@@ -20,7 +20,11 @@
 
   - name: Postgres - Create user spaceuser
     become_user: postgres
-    command: psql -c "CREATE USER spaceuser WITH PASSWORD 'spacepw'" && psql -c 'ALTER ROLE spaceuser SUPERUSER'
+    command: psql -c "CREATE USER spaceuser WITH PASSWORD 'spacepw'" 
+
+  - name: Postgres - Alter user spaceuser
+    become_user: postgres
+    command: psql -c 'ALTER ROLE spaceuser SUPERUSER'
 
   - name: Postgres - pltclu
     become_user: postgres
