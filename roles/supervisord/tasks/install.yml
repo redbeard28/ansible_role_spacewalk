@@ -29,3 +29,14 @@
     - deps
     - supervisor
     - supervisord
+
+- name: Install Supervisord
+  sudo: yes
+  when: ansible_os_family == 'Centos'
+  yum:
+    name: supervisor
+    state: present
+  tags:
+    - deps
+    - supervisor
+    - supervisord

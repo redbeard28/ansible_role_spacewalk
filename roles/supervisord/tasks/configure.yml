@@ -65,6 +65,7 @@
     - conf
     - supervisor
     - supervisord
+  when: ansible_os_family == 'Debian'
 
 - name: Add supervisord to init
   sudo: yes
@@ -76,3 +77,8 @@
     - conf
     - supervisor
     - supervisord
+  when: ansible_os_family == 'Debian'
+
+- name: Add supervisord to init Centos
+  sudo: yes
+  when: ansible_os_family == 'Centos'
