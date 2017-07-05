@@ -22,10 +22,10 @@
   - name: Kill supervisord - trash methode HAVE TO CHANGE IT
     command: killall supervisord
 
-- name: CentOS-RedHat - run supervisord
-  shell: if [ ! -S /var/run/supervisor/supervisor.sock ]; \
-    then /usr/bin/supervisord \
-    -c /etc/supervisord.conf; fi
+  - name: CentOS-RedHat - run supervisord
+    shell: if [ ! -S /var/run/supervisor/supervisor.sock ]; \
+      then /usr/bin/supervisord \
+      -c /etc/supervisord.conf; fi
     
   - name: Install spacewalk
 #    command: spacewalk-setup --disconnected --answer-file=/tmp/answers creates=/var/satellite
