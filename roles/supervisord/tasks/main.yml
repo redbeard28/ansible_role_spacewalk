@@ -22,7 +22,7 @@
   when: ansible_os_family == 'Debian'
   
 - name: CentOS-RedHat - run supervisord
-  shell: if [ ! -S /var/run/supervisor.sock ]; \
+  shell: if [ ! -S /var/run/supervisor/supervisor.sock ]; \
     then /usr/bin/supervisord \
     -c /etc/supervisord.conf; fi
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
