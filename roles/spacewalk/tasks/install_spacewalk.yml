@@ -18,10 +18,25 @@
 #    include_role:
 #      name: supervisord
 #      tags: supervisord-restart
-
+  - name: Supervisord - Copy config file to /etc/supervisord.data
+    copy:
+      src: /files/supervisord.ini
+      dest: /etc/supervisord.d/supervisord.ini
+      owner: root
+      group: root
+      mode: 0644
+  
+  - name: Spacewalk Config - Copy script file to /opt/
+    copy:
+      src: /files/spacewalk.sh
+      dest: /opt/spacewalk.sh
+      owner: root
+      group: root
+      mode: 0755
+    
   - name: CentOS-RedHat - Restart supervisord
     shell: supervisorctl restart all
     
-  - name: Install spacewalk
+#  - name: Install spacewalk
 #    command: spacewalk-setup --disconnected --answer-file=/tmp/answers creates=/var/satellite
-    command: spacewalk-setup --non-interactive --answer-file=/tmp/answers creates=/var/satellite
+#    command: spacewalk-setup --non-interactive --answer-file=/tmp/answers creates=/var/satellite
