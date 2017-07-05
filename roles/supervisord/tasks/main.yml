@@ -4,8 +4,8 @@
 # placed in this same directory.
 
 - include: install.yml
-- include: "{{ ansible_os_family }}".yml
-- include: "{{ ansible_distribution }}".yml
+- include: "{{ ansible_os_family }}.yml"
+- include: "{{ ansible_distribution }}.yml"
 
 - name: Ensure supervisord is running
   sudo: yes
