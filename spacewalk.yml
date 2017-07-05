@@ -5,34 +5,22 @@
     - secrets/{{site}}-secrets.yml
   roles:
     - repo-epel
-#    - supervisord
     - spacewalk
-#    - role: iptables
-#      firewall_allowed_tcp_ports:
-#      - 22
-#      - 80
-#      - 443
-#      - 5222
-#      - 5269
-#      - 68
-#      - 69
+    - role: iptables
+      firewall_allowed_tcp_ports:
+      - 22
+      - 80
+      - 443
+      - 5222
+      - 5269
+      - 68
+      - 69
 
 
 - hosts: localhost
   sudo: yes
   vars_files:
     - secrets/{{site}}-secrets.yml
-
-#  vars_prompt:
-#    - name: "ready_to_go"
-#      prompt: "Login to the Spacewalk and set up and admin account. Hit Enter when ready"
-#      private: No
-#
-#    - name: "admin_password"
-#      prompt: "Admin Password"
-#      default: "test123"
-#      private: yes
-
   roles:
     - role: spacewalk-customisations
       spacewalk_admin_password: "{{ admin_password }}"
