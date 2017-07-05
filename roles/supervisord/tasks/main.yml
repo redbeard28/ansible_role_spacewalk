@@ -5,7 +5,9 @@
 
 - include: install.yml
 - include: "{{ ansible_os_family }}.yml"
-- include: "{{ ansible_distribution }}.yml"
+  when: ansible_os_family == 'Debian'
+- include: CentOS.yml
+  when: ansible_os_family == 'CentOS'
 
 - name: Ensure supervisord is running
   sudo: yes
