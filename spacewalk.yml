@@ -5,7 +5,7 @@
     - secrets/{{site}}-secrets.yml
   roles:
     - repo-epel
-    - supervisord
+#    - supervisord
     - spacewalk
 #    - role: iptables
 #      firewall_allowed_tcp_ports:
