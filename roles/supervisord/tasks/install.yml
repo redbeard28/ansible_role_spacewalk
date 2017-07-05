@@ -32,7 +32,7 @@
 
 - name: Install Supervisord
   sudo: yes
-  when: ansible_os_family == 'Centos'
+  when: ansible_os_family == 'RedHat'
   yum:
     name: supervisor
     state: present
