@@ -23,8 +23,8 @@
   
 - name: CentOS-RedHat - run supervisord
   shell: if [ ! -S /var/run/supervisor.sock ]; \
-    then sudo /var/www/imd/venv/bin/supervisord \
-    -c /var/www/imd/deploy/supervisord.conf; fi
+    then /usr/bin/supervisord \
+    -c /etc/supervisord.conf; fi
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
   
 - name: CentOS-RedHat - Ensure supervisord is running
