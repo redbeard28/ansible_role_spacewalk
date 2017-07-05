@@ -7,7 +7,7 @@
 - include: configure-debian.yml
   when: ansible_os_family == 'Debian'
 - include: configure-centos.yml
-  when: ansible_os_family == 'Centos'
+  when: ansible_os_family == 'RedHat'
 
 - name: Ensure supervisord is running
   sudo: yes
@@ -24,4 +24,4 @@
 - name: Ensure supervisord is running
   sudo: yes
   systemd: state=started name="{{supervisord_service_name}}"
-  when: ansible_os_family == 'Centos'
+  when: ansible_os_family == 'RedHat'
