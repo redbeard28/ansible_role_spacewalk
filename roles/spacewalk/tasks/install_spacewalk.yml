@@ -20,7 +20,7 @@
 #      tags: supervisord-restart
   - name: Supervisord - Copy config file to /etc/supervisord.data
     copy:
-      src: /files/supervisord.ini
+      src: supervisord.ini
       dest: /etc/supervisord.d/supervisord.ini
       owner: root
       group: root
@@ -28,7 +28,7 @@
   
   - name: Spacewalk Config - Copy script file to /opt/
     copy:
-      src: /files/spacewalk.sh
+      src: spacewalk.sh
       dest: /opt/spacewalk.sh
       owner: root
       group: root
