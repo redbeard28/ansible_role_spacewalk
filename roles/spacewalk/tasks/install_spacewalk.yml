@@ -9,34 +9,7 @@
   - name: Copy answers file for spacewalk setip
     template: src=answers.j2 dest=/tmp/answers owner=root group=root mode=0600
 
-# We must stop postgres before supervisord start it !!!
-  - name: Postgres - Stoping instance
-    become_user: postgres
-    command: /usr/bin/pg_ctl stop -D /var/lib/pgsql/data/  -w -t 300
 
-#  - name: Supervisord - Restart
-#    include_role:
-#      name: supervisord
-#      tags: supervisord-restart
-  - name: Supervisord - Copy config file to /etc/supervisord.data
-    copy:
-      src: supervisord.ini
-      dest: /etc/supervisord.d/supervisord.ini
-      owner: root
-      group: root
-      mode: 0644
-  
-  - name: Spacewalk Config - Copy script file to /opt/
-    copy:
-      src: spacewalk.sh
-      dest: /opt/spacewalk.sh
-      owner: root
-      group: root
-      mode: 0755
-    
-  - name: CentOS-RedHat - Restart supervisord
-    shell: supervisorctl restart all
-    
-#  - name: Install spacewalk
+  - name: Install spacewalk
 #    command: spacewalk-setup --disconnected --answer-file=/tmp/answers creates=/var/satellite
-#    command: spacewalk-setup --non-interactive --answer-file=/tmp/answers creates=/var/satellite
+    command: spacewalk-setup --non-interactive --answer-file=/tmp/answers creates=/var/satellite
