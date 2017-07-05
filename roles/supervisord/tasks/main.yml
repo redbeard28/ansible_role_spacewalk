@@ -27,7 +27,7 @@
     -c /etc/supervisord.conf; fi
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
   
-- name: CentOS-RedHat - Ensure supervisord is running
-  sudo: yes
-  systemd: state=started name="{{supervisord_service_name}}"
-  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+#- name: CentOS-RedHat - Ensure supervisord is running
+#  sudo: yes
+#  systemd: state=started name="{{supervisord_service_name}}"
+#  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
