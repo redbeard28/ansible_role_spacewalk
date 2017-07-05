@@ -1,12 +1,12 @@
 ---
-spacewalk_admin_email: root@localhost
-spacewalk_ssl_org: Spacewalk Org
-spacewalk_ssl_org_unit: Spacewalk
-spacewalk_ssl_set_city: My City
-spacewalk_ssl_set_state: My State
-spacewalk_ssl_set_country: GB
-spacewalk_ssl_password: spacewalk
-spacewalk_ssl_set_email: root@localhost
+spacewalk_admin_email: "{{ vault_spacewalk_admin_email }}"
+spacewalk_ssl_org: "{{ vault_spacewalk_ssl_org }}"
+spacewalk_ssl_org_unit: "{{ vault_spacewalk_ssl_org_unit }}"
+spacewalk_ssl_set_city: "{{ vault_spacewalk_ssl_set_city }}"
+spacewalk_ssl_set_state: "{{ vault_spacewalk_ssl_set_state }}"
+spacewalk_ssl_set_country: "{{ vault_spacewalk_ssl_set_country }}"
+spacewalk_ssl_password:  "{{ vault_spacewalk_ssl_password }}"
+spacewalk_ssl_set_email: "{{ vault_spacewalk_ssl_set_email }}"
 spacewalk_ssl_config_sslvhost: Y
 spacewalk_db_backend: postgresql
 spacewalk_db_name: spaceschema
