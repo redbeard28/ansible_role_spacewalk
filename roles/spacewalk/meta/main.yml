@@ -1,1 +1,24 @@
 ---
+
+galaxy_info:
+  author: redbeard28
+  description: Spacewalk for CentOS.
+  company: ""
+  license: "GPL-3.1"
+  min_ansible_version: 2.1
+  platforms:
+    - name: EL
+      versions:
+      - 6
+      - 7
+    - name: Centos
+      version:
+       - 6
+       - 7
+  galaxy_tags:
+    - packaging
+    - spacewalk
+    - repository
+    - repo
+
+dependencies: []
